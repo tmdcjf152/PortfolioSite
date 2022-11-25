@@ -1,34 +1,77 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { HashRouter, Route, Routes } from 'react-router-dom';
+import Loading from './pages/Loading';
+import MainPage from './pages/MainPage';
+import { RecoilRoot, atom, selector, useRecoilState, useRecoilValue } from 'recoil';
+import { createGlobalStyle } from 'styled-components';
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+	return (
+		<RecoilRoot>
+			<GlobalStyle />
+			<HashRouter>
+				<Routes>
+					<Route path='/' element={<Loading />} />
+					<Route path='/main' element={<MainPage />} />
+				</Routes>
+			</HashRouter>
+		</RecoilRoot>
+	);
+};
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
-}
+export default App;
 
-export default App
+const GlobalStyle = createGlobalStyle`
+
+
+  *{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'apple'
+  }
+
+  a{
+	text-decoration: none;
+  }
+  
+  .center{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  }
+  img{
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+  }
+  .title-bar {
+			width: 100%;
+			height: 30px;
+			.title-bar-controls {
+				button {
+					width: 20px;
+					height: 20px;
+					font-size: 1.2rem;
+					margin-right: 5px;
+					&:nth-of-type(1){
+						background-position: 7px;
+					}
+					&:nth-of-type(2){
+						background-position: 4.7px;
+					}
+					&:nth-of-type(3){
+						background-position: 6px;
+					}
+				}
+			}
+			.title-bar-text {
+				font: bold 1.2rem/1 'apple';
+			}
+		}
+		.content-box {
+			width: 100%;
+			height: 100%;
+		}
+
+
+  `;
