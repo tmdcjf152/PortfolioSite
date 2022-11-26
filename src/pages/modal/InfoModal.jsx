@@ -40,8 +40,10 @@ export default InfoModal;
 const InfoModalBlock = styled.div`
 	.box-inner-box {
 		position: fixed;
-		top: 20px;
-		left: 100px;
+		margin: 0 auto;
+		bottom: 70px;
+		left: 0;
+		right: 0;
 		flex-direction: column;
 		width: 90%;
 		height: 90vh;
@@ -53,11 +55,19 @@ const InfoModalBlock = styled.div`
 			height: 100%;
 			padding: 10px;
 			background: #ddd;
-			.table-box {
-				width: 420px;
-				height: 100%;
-				background-color: red;
-			}
+
 		}
 	}
-`;
+	@media screen and (max-width: 1028px) {
+		.box-inner-box {
+
+		bottom: 42px;
+		left: 0;
+		right: 0;
+		flex-direction: column;
+		width: 100%;
+		height: 95vh;
+	}
+}
+
+	`;

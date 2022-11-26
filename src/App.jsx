@@ -4,6 +4,7 @@ import MainPage from './pages/MainPage';
 import { RecoilRoot, atom, selector, useRecoilState, useRecoilValue } from 'recoil';
 import { createGlobalStyle } from 'styled-components';
 
+
 const App = () => {
 	return (
 		<RecoilRoot>
@@ -32,6 +33,7 @@ const GlobalStyle = createGlobalStyle`
 
   a{
 	text-decoration: none;
+	color: #000;
   }
   
   .center{

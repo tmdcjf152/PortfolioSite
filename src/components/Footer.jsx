@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { SiWindows95 } from 'react-icons/si';
-
+import StartMenu from './StartMenu';
+import { useState } from 'react';
 
 const Footer = () => {
-
-
+	const [toggle, setToggle] = useState(false);
 	const todayTime = () => {
 		let now = new Date();
 		let todayMonth = now.getMonth() + 1;
@@ -20,9 +20,13 @@ const Footer = () => {
 	return (
 		<FooterBlock>
 			<div className='footer-inner-box'>
+				<div className='menu-inner-box'>{toggle === true ? <StartMenu toggle={toggle} /> : <StartMenu toggle={toggle} />}</div>
+
 				<div
 					className='start-box center'
-		>
+					onClick={() => {
+						setToggle(!toggle);
+					}}>
 					<SiWindows95 />시 작
 				</div>
 				<div className='time-box center'>{todayTime()}</div>
@@ -34,6 +38,7 @@ const Footer = () => {
 export default Footer;
 
 const FooterBlock = styled.footer`
+
 	.footer-inner-box {
 		display: flex;
 		justify-content: space-between;
@@ -43,15 +48,19 @@ const FooterBlock = styled.footer`
 		width: 100%;
 		height: 50px;
 		background: #c8c8c8;
-		border: 1px solid #333;
-		z-index: 10;
-		.start-menu-box{
+		border: 1px solid #000;
+z-index: 2;
+		.menu-inner-box {
+			position: absolute;
+			bottom: 48px;
+		}
+		.start-menu-box {
 			height: 0px;
 			position: absolute;
 			bottom: 50px;
 			transition: all 0;
 		}
-		.start-menu-box-active{
+		.start-menu-box-active {
 			height: 500px;
 			position: absolute;
 			bottom: 50px;

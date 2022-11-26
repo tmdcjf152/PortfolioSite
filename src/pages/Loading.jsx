@@ -141,13 +141,23 @@ const LoadingBlock = styled.main`
 				animation: bg-shift 0.5s ease-in-out infinite alternate;
 			}
 			h2 {
-				color: white;
-				font-family: 'Yellowtail', cursive;
-				font-weight: 100;
-				font-size: 4em;
-				transform: translatey(-10px) rotatez(-5deg);
-				text-shadow: 0 0 3px magenta, 0 0 7px magenta, 0 0 15px black, 0 0 15px black;
-				animation: hover 1s ease-in-out infinite;
+				color: transparent;
+				font-family: 'Russo One', sans-serif;
+				text-transform: uppercase;
+				text-align: center;
+				font-size: 8em;
+				color: #eeeeee80;
+				text-shadow: 1px 1px 1px 10px #000;
+				transform: translatey(-50px);
+				background-size: contain;
+				-webkit-background-clip: text;
+				-webkit-text-stroke: 1px silver;
+				filter: drop-shadow(5px 5px 1px black) drop-shadow(1px 1px 1px magenta);
+				animation: bg-shift 0.5s ease-in-out infinite alternate;
+				transition: all 0.5s;
+				&:hover{
+					color: cornflowerblue;
+				}
 			}
 		}
 	}
